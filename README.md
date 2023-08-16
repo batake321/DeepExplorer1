@@ -35,7 +35,7 @@ Queue is following.
 
 Each rotations
 
-Pitch
+**Pitch**
 $$
 \left[\begin{matrix}
 \cos(Pitch) & 0 & \sin(Pitch)
@@ -45,7 +45,7 @@ $$
 -\sin(Pitch) & 0 & \cos(Pitch)
 \end{matrix}\right]
 $$
-Yaw
+**Yaw**
 $$
 \left[\begin{matrix}
 \cos(Yaw) & -\sin(Yaw) & 0
