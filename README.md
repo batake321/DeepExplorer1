@@ -33,37 +33,57 @@ Starbase Eular Order is Pitch -> Roll -> yaw.
 
 Queue is following.
 
-Pitch
+Each rotations
 $$
-A=\left[\begin{matrix}
-cosθ & 0 & sinθ
+Pitch=\left[\begin{matrix}
+\cos(Pitch) & 0 & \sin(Pitch)
 \\
 0 & 1 & 0
 \\
--sinθ & 0 & cosθ
+-\sin(Pitch) & 0 & \cos(Pitch)
 \end{matrix}\right]
 $$
-
-Yaw
-
 $$
-A=\left[\begin{matrix}
-cosθ & -sinθ & 0
+Yaw=\left[\begin{matrix}
+\cos(Yaw) & -\sin(Yaw) & 0
 \\
-sinθ & cosθ & 0
+\sin(Yaw) & \cos(Yaw) & 0
 \\
 0 & 0 & 1
 \end{matrix}\right]
 $$
-
-Roll
 $$
-A=\left[\begin{matrix}
+Roll=\left[\begin{matrix}
 1 & 0 & 0
 \\
-0 & cosθ & -sinθ
+0 & \cos(Roll) & -\sin(Roll)
 \\
-0 & sinθ & cosθ
+0 & \sin(Roll) & \cos(Roll)
+\end{matrix}\right]
+$$
+
+Translate axis
+$$
+Org=\left[\begin{matrix}
+\cos(Pitch) & 0 & \sin(Pitch)
+\\
+0 & 1 & 0
+\\
+-\sin(Pitch) & 0 & \cos(Pitch)
+\end{matrix}\right]
+\left[\begin{matrix}
+1 & 0 & 0
+\\
+0 & \cos(Roll) & -\sin(Roll)
+\\
+0 & \sin(Roll) & \cos(Roll)
+\end{matrix}\right]
+\left[\begin{matrix}
+\cos(Yaw) & -\sin(Yaw) & 0
+\\
+\sin(Yaw) & \cos(Yaw) & 0
+\\
+0 & 0 & 1
 \end{matrix}\right]
 $$
 
