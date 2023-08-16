@@ -34,18 +34,36 @@ Starbase Eular Order is Pitch -> Roll -> yaw.
 Queue is following.
 
 Pitch
-A = 
-\begin{matrix} 
-a & b \\ 
-c & d 
-\end{matrix}
-
+$$
+A=\left[\begin{matrix}
+cosθ & 0 & sinθ
+\\
+0 & 1 & 0
+\\
+-sinθ & 0 & cosθ
+\end{matrix}\right]
+$$
 
 Yaw
 
-
+$$
+A=\left[\begin{matrix}
+cosθ & -sinθ & 0
+\\
+sinθ & cosθ & 0
+\\
+0 & 0 & 1
+\end{matrix}\right]
+$$
 
 Roll
-
-A=\left[\begin{matrix} a & b \\ c & d \end{matrix}\right]
+$$
+A=\left[\begin{matrix}
+1 & 0 & 0
+\\
+0 & cosθ & -sinθ
+\\
+0 & sinθ & cosθ
+\end{matrix}\right]
+$$
 
