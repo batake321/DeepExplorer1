@@ -36,6 +36,7 @@ Queue is following.
 Each rotations
 
 **Pitch**
+
 $$
 \left[\begin{matrix}
 \cos(Pitch) & 0 & \sin(Pitch)
@@ -45,7 +46,9 @@ $$
 -\sin(Pitch) & 0 & \cos(Pitch)
 \end{matrix}\right]
 $$
+
 **Yaw**
+
 $$
 \left[\begin{matrix}
 \cos(Yaw) & -\sin(Yaw) & 0
@@ -55,7 +58,9 @@ $$
 0 & 0 & 1
 \end{matrix}\right]
 $$
+
 Roll
+
 $$
 \left[\begin{matrix}
 1 & 0 & 0
@@ -65,7 +70,9 @@ $$
 0 & \sin(Roll) & \cos(Roll)
 \end{matrix}\right]
 $$
+
 Translate
+
 $$
 \left[\begin{matrix}
 \cos(Pitch) & 0 & \sin(Pitch)
@@ -92,6 +99,7 @@ $$
 
 
 For X-Axis movement, calculate is following
+
 $$
 \left[\begin{matrix}
 1 & 0 & 0
