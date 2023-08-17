@@ -172,17 +172,20 @@ $$
 
 
 
-### Translate Direction from Euler XYZ to Starbase axis
+### Yolol code forTranslate Direction from Euler XYZ to Starbase axis
 
 important: x -> Z Z->-X
 
+```
+e=cos :gP f=sin :gP a=cos -:gY b= sin -:gY c=cos :gR d=sin :gR
+:sZz=:Zs*(e*a+f*d*b) :sXz=:Zs*(f*d*a-e*b) :sYz=:Zs*f*c // Z(Forward)
+:sZx=:Xs*e*b :sXx=:Xs*c*a :sYx=:Xs*-d // X(Right)
+:sZy=:Ys*(e*d-f*a) :sXy=:Ys*(f*b+e*d*a) :sYy=:Ys*e*c // Y(Up)
+:sZ=:sZx+:sZy+:sZz :sX=:sXx+:sXy+:sXz :sY=:sYx+:sYy+:sYz goto1
+// sX (Total Rightward speed) sY (Total Upward speed) sZ (Total forward speed)
+```
 
-$$
-a=-\cos(Yaw)\\b=-\sin(Yaw)\\c=\cos(Roll)\\d=\sin(Roll)\\e=\cos(Pitch)\\f=\sin(Pitch)
-\\\\
-Z(Forward) : AxisZ= ForwardSpeed \times (f\times d \times a-e \times b) AxisX=ForwardSpeed \times f \times c AxisY=ForwardSpeed \times (e \times a+f \times d \times b)
-\\
-X(Right) : AxisZ=RightSpeed \times e \times b AxisX=RightSpeed \times c*a AxisY=RightSpeed \times -d
-\\
-Y(Up) : AxisZ=UpSpeed \times (e*d-f*a) AxisX=UpSpeed \times (f \times b+e \times d \times a) AxisY=UpSpeed \times e \times c
-$$
+
+
+
+
