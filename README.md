@@ -175,6 +175,8 @@ $$
 ### Translate Direction from Euler XYZ to Starbase axis
 
 important: x -> Z Z->-X
+
+
 $$
 a=-\cos(Yaw)\\b=-\sin(Yaw)\\c=\cos(Roll)\\d=\sin(Roll)\\e=\cos(Pitch)\\f=\sin(Pitch)
 \\\\
