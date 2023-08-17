@@ -178,10 +178,14 @@ important: x -> Z Z->-X
 
 ```
 e=cos :gP f=sin :gP a=cos -:gY b= sin -:gY c=cos :gR d=sin :gR
+:sZx=:Xs*e*b :sXx=:Xs*c*a :sYx=:Xs*-d // X(HolizontalDirection)
+:sZy=:Ys*(e*d-f*a) :sXy=:Ys*(f*b+e*d*a) :sYy=:Ys*e*c // Y(VerticalDirection)
 :sZz=:Zs*(e*a+f*d*b) :sXz=:Zs*(f*d*a-e*b) :sYz=:Zs*f*c // Z(Forward)
-:sZx=:Xs*e*b :sXx=:Xs*c*a :sYx=:Xs*-d // X(Right)
-:sZy=:Ys*(e*d-f*a) :sXy=:Ys*(f*b+e*d*a) :sYy=:Ys*e*c // Y(Up)
 :sZ=:sZx+:sZy+:sZz :sX=:sXx+:sXy+:sXz :sY=:sYx+:sYy+:sYz goto1
+// gP:GyroPitch gY:GyroYow gR:GyroRoll
+// Xs:Holizontal(Right+ Left-) speed by CargoFrameLockSpeedmeter
+// Ys:Vertical(Up+ Down-) speed by CargoFrameLockSpeedmeter
+// Zs:Forward speed by CargoFrameLockSpeedmeter
 // sX (Total Rightward speed) sY (Total Upward speed) sZ (Total forward speed)
 ```
 
