@@ -96,8 +96,10 @@ $$
 \\
 0 & 0 & 1
 \end{matrix}\right]
-\\
-=\left[\begin{matrix}
+$$
+
+$$
+= \left[\begin{matrix}
 -\cos(Pitch) & \sin(Pitch)\sin(Roll) & \sin(Pitch)\cos(Roll)
 \\
 0 & \cos(Roll) & -\sin(Pitch)
@@ -112,8 +114,10 @@ $$
 \\
 0 & 0 & 1
 \end{matrix}\right]
-\\
-=\left[\begin{matrix}
+$$
+
+$$
+= \left[\begin{matrix}
 \cos(Pitch)\cos(Yaw)-\sin(Roll)\sin(Pitch)\sin(Yaw) & -\cos(Roll)\sin(Yaw)+\sin(Roll)\sin(Pitch)\cos(Yaw) & \sin(Roll)\cos(Pitch)
 \\
 \cos(Pitch)\sin(Yaw) & \cos(Pitch)\cos(Yaw) & -sin(Pitch)
