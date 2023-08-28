@@ -150,6 +150,66 @@ If you want to enter minus, push "+/-" key after entering numeric keys
 2. Push function Button "Rol"
 If push "Pitch", "Yaw", "Roll" or "Home" buttons, reset to  (x,y,z) =(0,0,0) and ship calculate movement.
 
+####  CruiseHead
+
+Push. Auto turn head to cruise primary angle
+
+####  HomeHead
+
+Push. Auto turn head to HomePosition primary angle
+
+####  ThrustCalibration
+
+Push. Auto turn and check angle value for each thrust. and record it to memory chips.
+
+####  Turtle
+
+Push.
+
+####  Sense
+
+Push. 
+
+####  AvoidanceSystem
+
+Push. For set mode, Use "SetAvoid" switchs on side panel.
+
+####  Transponder
+
+Push. For On /Off, Use bottom right button on main panel
+
+####  SettingTubs
+
+Upper switch of progress bar, change items. Lower switch of progress bar, change value of selected item.
+
+####  GeneratorPowerControl
+
+Turn Generator switch on side panel.
+
+####  EmagencyStop
+
+Turn switch to change notify distamce in meter.
+
+####  ReconstructionMachine
+
+####  NavigationLogger
+
+for turn on / off, push "LogOn" button. "LogOn" button is on backside wall of Navigation data logger front panel.
+
+####  MultiDIsplay
+
+1. Push button on passenger seat panel. It will appear.
+2. Left side of main cabin front wall.
+3. Left wall of WarkBenchRoom ( back side ) front wall. 
+
+####  DoorOpenWarning
+
+2 buttons for each door is on side panel.
+
+####  GeneratorFullWorkingWarn
+
+If change Generator mode to full, sounds.
+
 ## Logic for Angle and location
 
 Starbase Eular Order is Pitch -> Roll -> yaw.
@@ -157,6 +217,4 @@ Starbase Eular Order is Pitch -> Roll -> yaw.
 Detail is in [Angle](Manuals/Angle.md) page
 
 
-
-manulas/Angle.md
 
