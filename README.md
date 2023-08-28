@@ -5,193 +5,156 @@
 # DeepExplorer1
 Starbase Ship Project ( Deep Space Explorer Ship )
 
-## About Axis
+## about
 
-with using 3 gyroscope, use 3 axis.
+This ship is for NavigationDataLogger.
+Max Speed : 140+ m/s
+Ranges : over 3000Km
 
-- Home position
-- Cruise Position
-- Current Position
+## Ores
 
-### Details
+need following ores
 
-#### Home Position
+| Ores            | Value      | Stack        |
+| --------------- | ---------- | ------------ |
+| Aegisium        | 156,723 kv | 90.7 Stacks  |
+| Ajatite         | 594,80 kv  | 34.4 Stacks  |
+| Arkanium        | 33,169 kv  | 19.2 Stacks  |
+| Bastium         | 213,681 kv | 123.7 Stacks |
+| Bastonium Alloy | 409 kv     | 0.2 Stacks   |
+| Charodium       | 235,664 kv | 136.4 Stacks |
+| Corazium        | 6,597 kv   | 3.8 Stacks   |
+| Exorium         | 16,510 kv  | 9.6 Stacks   |
+| Glass           | 16,976 kv  | 9.8 Stacks   |
+| Ice             | 168,000    | 97.2 Stacks  |
+| Karnite         | 25,208 kv  | 14.6 Stacks  |
+| Kutonium        | 51,269 kv  | 29.7 Stacks  |
+| Lukium          | 44,995 kv  | 56.9 Stacks  |
+| Valkite         | 38 kv      | 0.0 Stacks   |
+| Vokarium        | 132,866 kv | 76.9 Stacks  |
+| Xhalium         | 1,265 kv   | 0.7 Stacks   |
+| Ymrium          | 33,131 kv  | 19.2 Stacks  |
 
-for "Home" Button. If push "Home Button", return to (x,y,z) =(0,0,0) on this axis.
 
-#### Cruise Position
 
-If push "Forward" button for cruising to forward,  Home Position is reset to (x,y,z) =(0,0,0).
+## Cost
 
-#### Current Position
+ Assembly : 443,106cr
+ Manufacturing : 1,187,518Cr
+ Total : 1,630,624Cr
 
+## Functions
+
+Functions
+
+- AutoCruise
+
+  Forward specified distance ( positive integer / unit:Km )
+
+- AutoTurn
+
+  Turn specified Yaw / Pitch / Roll Angle ( integer /unit:gegree )
+
+- AutoReturn
+
+  Automatically return to HomePosition
+
+- CruiseHead
+
+  Auto turn head to cruise primary angle
+
+- HomeHead
+
+  Auto turn head to HomePosition primary angle
+
+- ThrustCalibration
+
+  If push "Cal" button, thrust Yaw / Pitch /Roll thrusters (both direction) and check angle value with thrust
+
+- Turtle
+
+  Limit Forward Thrust
+
+- Sense
+
+  Limit Yaw / Pitch / Roll Thrust
+
+- AvoidanceSystem
+
+  muti functions : SoundOnly / PitchUpDown / PitchUpDown + reduce speed (VerySlow / Turtle) / Stop
+
+  when pitch up or down or reduce speed, after fly 1Km, resume angle and speed
+
+- Transponder
+
+  Transponder On / Off and display status
+
+- SettingTubs
+
+  easy to change settings. AvoidanceSystem / ThrusterSetting
+
+- GeneratorPowerControl
+
+   3 modes. Stop( with AvoidanceSystem,NavigationLogger, and Lights ) / Eco ( Save power ) / FullPower
+
+- EmagencyStop
+
+  If find something within specified distance, stop automatically.
+
+- ReconstructionMachine
+
+  for endoschelton
+
+- NavigationLogger
+
+  for Capital ship
+
+- MultiDIsplay
+
+- DoorOpenWarning
+
+- GeneratorFullWorkingWard
+
+## HowToUse
+
+#### Home
+
+Push "Home" button. Automatically calculate heading and distance of HomePosition. After fix heading, forward to home position.
+
+#### input numbers
+
+push mumeric keys ( left side of main panel )
+Number will display on "Number" progress bar.
+If you want to enter minus, push "+/-" key after entering numeric keys
+"Clear" key : Clear number
+"BS" key : backspace key. delete last letter of number.
+
+#### Auto Cruise
+
+1. push mumeric keys
+2. Push function Button  "Fwd"
+
+#### Auto Pitch
+
+1. push mumeric keys
+2. Push function Button "Pch"
+
+#### Auto Yaw
+
+1. push mumeric keys
+2. Push function Button "Pch"
+
+#### Auto Roll
+
+1. push mumeric keys
+2. Push function Button "Rol"
 If push "Pitch", "Yaw", "Roll" or "Home" buttons, reset to  (x,y,z) =(0,0,0) and ship calculate movement.
 
-### Logic (location from gyroscope and speed)
+## Logic for Angle and location
 
 Starbase Eular Order is Pitch -> Roll -> yaw.
 
-Queue is following.
-
-Each rotations
-
-**Pitch**
-
-$$
-\left[\begin{matrix}
-\cos(Pitch) & 0 & \sin(Pitch)
-\\
-0 & 1 & 0
-\\
--\sin(Pitch) & 0 & \cos(Pitch)
-\end{matrix}\right]
-$$
-
-**Yaw**
-
-$$
-\left[\begin{matrix}
-\cos(Yaw) & -\sin(Yaw) & 0
-\\
-\sin(Yaw) & \cos(Yaw) & 0
-\\
-0 & 0 & 1
-\end{matrix}\right]
-$$
-
-Roll
-
-$$
-\left[\begin{matrix}
-1 & 0 & 0
-\\
-0 & \cos(Roll) & -\sin(Roll)
-\\
-0 & \sin(Roll) & \cos(Roll)
-\end{matrix}\right]
-$$
-
-Translate
-
-
-$$
-\left[\begin{matrix}
-\cos(Pitch) & 0 & \sin(Pitch)
-\\
-0 & 1 & 0
-\\
--\sin(Pitch) & 0 & \cos(Pitch)
-\end{matrix}\right]
-\left[\begin{matrix}
-\cos(Yaw) & -\sin(Yaw) & 0
-\\
-\sin(Yaw) & \cos(Yaw) & 0
-\\
-0 & 0 & 1
-\end{matrix}\right]
-\left[\begin{matrix}
-\cos(Yaw) & -\sin(Yaw) & 0
-\\
-\sin(Yaw) & \cos(Yaw) & 0
-\\
-0 & 0 & 1
-\end{matrix}\right]
-$$
-
-$$
-= \left[\begin{matrix}
--\cos(Pitch) & \sin(Pitch)\sin(Roll) & \sin(Pitch)\cos(Roll)
-\\
-0 & \cos(Roll) & -\sin(Pitch)
-\\
--\sin(Roll) & cos(Pitch)\sin(Roll) & \cos(Roll)\cos(Pitch)
-\end{matrix}\right]
-\times
-\left[\begin{matrix}
-\cos(Yaw) & -\sin(Yaw) & 0
-\\
-\sin(Yaw) & \cos(Yaw) & 0
-\\
-0 & 0 & 1
-\end{matrix}\right]
-$$
-
-$$
-= \left[\begin{matrix}
-\cos(Pitch)\cos(Yaw)-\sin(Roll)\sin(Pitch)\sin(Yaw) & -\cos(Roll)\sin(Yaw)+\sin(Roll)\sin(Pitch)\cos(Yaw) & \sin(Roll)\cos(Pitch)
-\\
-\cos(Pitch)\sin(Yaw) & \cos(Pitch)\cos(Yaw) & -sin(Pitch)
-\\
--\sin(Roll)\cos(Yaw)+\cos(Roll)\sin(Pitch) & \sin(Roll)\sin(Yaw)+\cos(Roll)\sin(Pitch)\cos(Yaw) & \cos(Roll)\cos(Pitch)
-\end{matrix}\right]
-$$
-
-For X-Axis movement, calculate is following
-
-$$
-\left[\begin{matrix}
-1 & 0 & 0
-\end{matrix}\right]
-\times
-\left[\begin{matrix}
-\cos(Pitch)\cos(Yaw)-\sin(Roll)\sin(Pitch)\sin(Yaw) & -\cos(Roll)\sin(Yaw)+\sin(Roll)\sin(Pitch)\cos(Yaw) & \sin(Roll)\cos(Pitch)
-\\
-\cos(Pitch)\sin(Yaw) & \cos(Pitch)\cos(Yaw) & -sin(Pitch)
-\\
--\sin(Roll)\cos(Yaw)+\cos(Roll)\sin(Pitch) & \sin(Roll)\sin(Yaw)+\cos(Roll)\sin(Pitch)\cos(Yaw) & \cos(Roll)\cos(Pitch)
-\end{matrix}\right]
-$$
-
-For Y-Axis movement, calculate is following
-
-$$
-\left[\begin{matrix}
-0 & 1 & 0
-\end{matrix}\right]
-\times
-\left[\begin{matrix}
-\cos(Pitch)\cos(Yaw)-\sin(Roll)\sin(Pitch)\sin(Yaw) & -\cos(Roll)\sin(Yaw)+\sin(Roll)\sin(Pitch)\cos(Yaw) & \sin(Roll)\cos(Pitch)
-\\
-\cos(Pitch)\sin(Yaw) & \cos(Pitch)\cos(Yaw) & -sin(Pitch)
-\\
--\sin(Roll)\cos(Yaw)+\cos(Roll)\sin(Pitch) & \sin(Roll)\sin(Yaw)+\cos(Roll)\sin(Pitch)\cos(Yaw) & \cos(Roll)\cos(Pitch)
-\end{matrix}\right]
-$$
-
-For Z-Axis movement, calculate is following
-
-$$
-\left[\begin{matrix}
-0 & 0 & 1
-\end{matrix}\right]
-\times
-\left[\begin{matrix}
-\cos(Pitch)\cos(Yaw)-\sin(Roll)\sin(Pitch)\sin(Yaw) & -\cos(Roll)\sin(Yaw)+\sin(Roll)\sin(Pitch)\cos(Yaw) & \sin(Roll)\cos(Pitch)
-\\
-\cos(Pitch)\sin(Yaw) & \cos(Pitch)\cos(Yaw) & -sin(Pitch)
-\\
--\sin(Roll)\cos(Yaw)+\cos(Roll)\sin(Pitch) & \sin(Roll)\sin(Yaw)+\cos(Roll)\sin(Pitch)\cos(Yaw) & \cos(Roll)\cos(Pitch)
-\end{matrix}\right]
-$$
-
-
-
-### Yolol code forTranslate Direction from Euler XYZ to Starbase axis
-
-important: x -> Z Z->-X
-
-```
-e=cos :gP f=sin :gP a=cos -:gY b= sin -:gY c=cos :gR d=sin :gR
-:sZx=:Xs*e*b :sXx=:Xs*c*a :sYx=:Xs*-d // X(HolizontalDirection)
-:sZy=:Ys*(e*d-f*a) :sXy=:Ys*(f*b+e*d*a) :sYy=:Ys*e*c // Y(VerticalDirection)
-:sZz=:Zs*(e*a+f*d*b) :sXz=:Zs*(f*d*a-e*b) :sYz=:Zs*f*c // Z(Forward)
-:sZ=:sZx+:sZy+:sZz :sX=:sXx+:sXy+:sXz :sY=:sYx+:sYy+:sYz goto1
-// gP:GyroPitch gY:GyroYow gR:GyroRoll
-// Xs:Holizontal(Right+ Left-) speed by CargoFrameLockSpeedmeter
-// Ys:Vertical(Up+ Down-) speed by CargoFrameLockSpeedmeter
-// Zs:Forward speed by CargoFrameLockSpeedmeter
-// sX (Total Rightward speed) sY (Total Upward speed) sZ (Total forward speed)
-```
+Detail is in [Angle](manulas/Angle.md) page
 
 
 
