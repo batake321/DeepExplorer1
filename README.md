@@ -154,9 +154,9 @@ If push "Pitch", "Yaw", "Roll" or "Home" buttons, reset to  (x,y,z) =(0,0,0) and
 
 Starbase Eular Order is Pitch -> Roll -> yaw.
 
-Detail is in [Angle](manulas/Angle.md) page
+Detail is in [Angle](./manulas/Angle.md) page
 
 
 
-
+manulas/Angle.md
 
